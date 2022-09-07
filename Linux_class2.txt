@@ -1,0 +1,125 @@
+Directory Structure on Windows and Linux OS:
+============================================
+
+Windows: Folder structure
+
+C:/
+
+--> PROGRAMFILES 
+--> PROGRAMFILES(X86_64)
+--> WINDOWS
+--> USERS
+
+Linux: Directory structure
+
+/ (root or super user)
+
+-->/root --> which is having all os related files/softwares/libraries
+-->/bin  --> normal user related commands/softwares
+-->/sbin --> super user/root user related commands/softwares
+-->/tmp  --> temporary files will be place here and which is a universal directory
+-->/var  --> default logs location for any system level process/service(software)
+-->/etc  --> default configuration path for any software
+-->/dev  --> devices information
+-->/lib  --> library information for any software
+-->/proc --> process IDs will be store over here
+-->/boot --> bootable iles wil be available here.
+-->/opt  --> 3rd party software will be place over here
+--/home  --> default home directory for any users
+
+Genaral information:
+----------------------
+
+1.difference between the normal user and root user terminnal:
+
+normal user terminal:
+[ec2-user@ip-172-31-28-28 ~]$ 
+
+root user termial:
+[root@ip-172-31-28-28 ~]#
+
+commands: pwd, cd ,ls
+--------
+
+pwd: Present working directory
+---------
+example:
+
+[root@ip-172-31-28-28 ec2-user]# pwd
+/home/ec2-user
+
+cd:- Change the directory either forward or backword
+---
+
+default:
+
+[root@ip-172-31-28-28 ec2-user]# cd
+[root@ip-172-31-28-28 ~]# pwd
+/root
+
+custom directory:1
+
+[root@ip-172-31-28-28 ~]# cd /home/ec2-user
+[root@ip-172-31-28-28 ec2-user]# pwd
+/home/ec2-user
+
+one step backword:
+
+[root@ip-172-31-28-28 ec2-user]# pwd
+/home/ec2-user
+[root@ip-172-31-28-28 ec2-user]# cd ..
+[root@ip-172-31-28-28 home]# pwd
+/home
+
+
+fwd/bwd:
+
+[root@ip-172-31-28-28 home]# cd sekhar/rama/sita/sai/swarna/xyz/
+[root@ip-172-31-28-28 xyz]# pwd
+/home/sekhar/rama/sita/sai/swarna/xyz
+[root@ip-172-31-28-28 xyz]# cd ../../..
+[root@ip-172-31-28-28 sita]# pwd
+/home/sekhar/rama/sita
+
+ls:-  listing of files and their metdata
+--
+
+options:
+
+-l --> longlist info
+-r --> recursive info
+-t --> tiestamp
+-a --> hidden files info
+
+example:
+
+[root@ip-172-31-28-28 sita]# ls
+sai
+[root@ip-172-31-28-28 sita]# touch sek rama sita er
+[root@ip-172-31-28-28 sita]# ls
+er  rama  sai  sek  sita
+
+[root@ip-172-31-28-28 sita]# ls -l
+total 0
+-rw-r--r-- 1 root root  0 Sep  7 15:19 er
+-rw-r--r-- 1 root root  0 Sep  7 15:19 rama
+drwxr-xr-x 3 root root 20 Sep  7 15:15 sai
+-rw-r--r-- 1 root root  0 Sep  7 15:19 sek
+-rw-r--r-- 1 root root  0 Sep  7 15:19 sita
+[root@ip-172-31-28-28 sita]# ls -lrt
+total 0
+drwxr-xr-x 3 root root 20 Sep  7 15:15 sai
+-rw-r--r-- 1 root root  0 Sep  7 15:19 sita
+-rw-r--r-- 1 root root  0 Sep  7 15:19 sek
+-rw-r--r-- 1 root root  0 Sep  7 15:19 rama
+-rw-r--r-- 1 root root  0 Sep  7 15:19 er
+[root@ip-172-31-28-28 sita]# ls -lrt rama
+-rw-r--r-- 1 root root 0 Sep  7 15:19 rama
+
+
+
+
+
+
+
+

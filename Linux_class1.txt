@@ -52,3 +52,4 @@ cat: to edit a file and create and append the data to it.To read a file
      cat >> sekhar --> to append the data to existing file
 
 
+
