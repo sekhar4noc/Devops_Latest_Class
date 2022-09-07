@@ -1,0 +1,54 @@
+Linux basic/advanced admin commands:
+====================================
+
+Basic commands: touch,cat,vi,cd,mkdir,cp,mv,links
+Advanced commands: grep,find,sed,awk,tail,less,more,head,cut,sort
+
+
+
+Difference between the Windows OS and Linux OS:
+===============================================
+
+Windows:
+
+1. user friendly
+2. easy administration
+3. provides good security --> login credentials --> 3rd party compilers --> less security on architecture level
+4. performance --> moderate/average
+
+Linux:
+
+1. not userfriendly --> CLI (Command line interface)commands
+2. Easy admini for linux admins and not for other administrators like windows
+3. More security and less cost --> the password characters length cannot be visible on the screen -->SELinux and firewalls softwares will be there --> more on architecture level security
+4. performance --> high
+
+Linux:
+=====
+
+Unix ---> solaris --> licensed
+IBM-UX --> licensed
+HP-UX --> licensed
+SuSE Linux --> both lincesed/freely
+Fedora --> freely
+Centos  --> free/licensed
+Ubuntu  --> free/licensed
+==================================================
+Basic commands:
+
+1. how do you create an empty file.
+
+touch: to create a single empty file or multiple empty files
+
+command:  touch xyz
+          touch sekhar rama sita
+
+2. how do you store data to a given file
+
+cat: to edit a file and create and append the data to it.To read a file
+
+     cat > sekhar  --> to append the data --> ctrl+c(save and quit ffrom the file)
+     cat sekhar --: to read a file	
+     cat >> sekhar --> to append the data to existing file
+
+
