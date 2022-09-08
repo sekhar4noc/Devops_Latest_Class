@@ -1,0 +1,65 @@
+General info: Connect to aws linux machines
+----------------
+ssh -i "latest.pem" ec2-user@ec2-54-219-212-11.us-west-1.compute.amazonaws.com
+
+ssh -->. secured shell
+latest.pem ==? privatekey has to be attached to the command
+ec2-user ==> default user for the aws linux machines
+
+ec2-54-219-212-11.us-west-1.compute.amazonaws.com --> machine name / hostname
+
+
+Directory:
+======
+
+command: mkdir
+syntax: mkdir <dirname>
+example:
+ 
+[root@ip-172-31-28-28 ~]# mkdir data
+[root@ip-172-31-28-28 ~]# ls -lrt
+total 0
+drwxr-xr-x 2 root root 6 Sep  8 14:07 data
+[root@ip-172-31-28-28 ~]# pwd
+/root
+[root@ip-172-31-28-28 ~]# cd data
+[root@ip-172-31-28-28 data]# pwd
+/root/data
+
+[root@ip-172-31-28-28 data]# mkdir sekhar rama sita
+[root@ip-172-31-28-28 data]# ls
+rama  sekhar  sita
+
+sub directories:
+==============
+[root@ip-172-31-28-28 data]# mkdir -p rama/x/y/z
+
+[root@ip-172-31-28-28 data]# tree rama
+rama
+└── x
+    └── y
+        └── z
+
+3 directories, 0 files
+
+Absolute method to create a directory:
+
+[root@ip-172-31-28-28 data]# mkdir rama/x/y/z/xyz
+[root@ip-172-31-28-28 data]# tree rama
+rama
+└── x
+    └── y
+        └── z
+            └── xyz
+
+4 directories, 0 files
+[root@ip-172-31-28-28 data]# touch rama/x/y/z/xyz/testing-file
+[root@ip-172-31-28-28 data]# tree rama
+rama
+└── x
+    └── y
+        └── z
+            └── xyz
+                └── testing-file
+
+4 directories, 1 file
