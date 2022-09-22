@@ -1,0 +1,56 @@
+Advanced commmands:
+==================
+grep,sed and awk
+
+grep:-globally search/filter with regular expression
+======
+syn:  grep <options> <pattern> <file/path name>
+===
+
+options:
+=======
+-e single pattern search
+-E multiple pattern search
+-i Ignore case (ie uppercase, lowercase letters).
+-v Return all lines which don't match the pattern.
+-w Select only matches that form whole words.
+-c Print a count of matching lines
+-l Print the name of each file which contains a match.
+-n Print the line number before each line that matches.
+^ From the beginning of the line.
+$ To the end of the line.
+\b Match either the beginning or end of a word.
+
+examples:
+========
+
+[root@ip-172-31-28-28 data]# cat class |grep -i command
+COMMAND One of the classic Unix commands, developed way back in 1974 by Ken Thompson, is the Global 
+Regular Expression Print (grep) command. It's so ubiquitous in computing that it's frequently used as
+
+[root@ip-172-31-28-28 data]# cat class |grep -v command
+
+
+Grep uses regular expression to provide a flexible search capability.
+
+[root@ip-172-31-28-28 data]# cat class |grep -wi command
+COMMAND One of the classic Unix commands, developed way back
+
+[root@ip-172-31-28-28 data]# cat class |grep -wic command
+3
+
+[root@ip-172-31-28-28 data]# grep -il command *
+class
+
+[root@ip-172-31-28-28 data]# cat class |grep -in command
+1:COMMAND One of the 
+
+[root@ip-172-31-28-28 data]# grep -E "command|industry" class
+COMMAND One of the classic Unix commands, developed way back
+
+[root@ip-172-31-28-28 data]# grep -E "command|industry" class
+COMMAND One of the classic Unix commands, developed way back
+
+==============================================================================================
+
+
