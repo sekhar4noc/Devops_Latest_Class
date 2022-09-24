@@ -1,0 +1,105 @@
+=== CUT
+To filter/search the patterns using the delimiters like : , = <space>.
+
+syntax: cut <options> <delimite> <filename>
+example:
+[root@ip-172-31-28-28 ~]# cat /etc/passwd|cut -d: -f1 
+root
+bin
+daemon
+
+=== TAIL
+    we can albe to read the file from bottom
+    monnitor the processing log info.
+   
+    [root@ip-172-31-28-28 ~]# tail -50f /var/log/messages 
+
+=== HEAD:
+    it will display the file information from starting of the file
+    
+=== AWK
+
+    we can able to filter the respective fields from a file
+
+=== SED
+    url: https://linuxhint.com/50_sed_command_examples/
+
+`sed` is a useful text processing feature of GNU/Linux. The full form of `sed` is Stream Editor. 
+Many types of simple and complicated text processing tasks can be done very easily by using `sed` command. 
+Any particular string in a text or a file can be searched, replaced and deleted by using regular expression with `sed command. 
+But this commands performs all types of modification temporarily and the original file content is not changed by default.
+
+Syntax:
+
+sed [options]…  [script] [file]  s--> substitution/searchable word/replaceableword/  --> it will impact on the first line of a line and first occurance on every matched line
+                                 s--> substitution/searchable word/replaceableword/g --> all the occurences
+                                 s--> substitution/searchable word/replaceableword/2 
+sed 's/Bash/Perl/'
+
+1. Basic text substitution using ‘sed’
+
+$ echo "Bash Scripting Language" | sed 's/Bash/Perl/'
+
+
+2. Replace all instances of a text in a particular line of a file using ‘g’ option
+
+sed '2 s/Python/perl/g' python.txt
+
+3. Replace the second occurrence only of a match on each line
+
+$ sed 's/Python/perl/g2' python.txt
+
+4. Replace the last occurrence only of a match on each line
+
+$ sed 's/\(.*\)Programming/\1Scripting/' lang.txt
+
+
+5. Replace the first match in a file with new text
+
+$ sed '1 s/Python/perl/' python.txt
+
+6. Replace the last match in a file with new text
+
+$ sed -e '$s/Python/Bash/' python.txt
+
+practiced examples:
+
+[root@ip-172-31-28-28 data]# sed 's/please/PLEASE/' link1
+hello
+hoe are you
+PLEASE tell something to discuss on please
+[root@ip-172-31-28-28 data]# sed 's/please/PLEASE/g' link1
+hello
+hoe are you
+PLEASE tell something to discuss on PLEASE
+[root@ip-172-31-28-28 data]# sed 's/please/PLEASE/2' link1
+hello
+hoe are you
+please tell something to discuss on PLEASE
+
+Bash Programming Language.  Python Programming Language. Perl Programming Language.
+Hypertext Markup Language.
+Extensible Markup Language.
+
+
+Symbol	Descriptions
+.	replaces any character
+^	matches start of string
+$	matches end of string
+*	matches up zero or more times the preceding character
+\	Represent special characters
+()	Groups regular expressions
+?	Matches up exactly one character
+
+[root@ip-172-31-28-28 data]# cat link1 |grep -i please$
+please tell something to discuss on please
+please tell something to discuss on please
+[root@ip-172-31-28-28 data]# cat link1 |grep -i ^please
+please tell something to discuss on please
+please tell something to discuss on please
+[root@ip-172-31-28-28 data]# cat link1 |grep -i ple*
+please tell something to discuss on please
+please tell something to discuss on please
+[root@ip-172-31-28-28 data]#
+
+
