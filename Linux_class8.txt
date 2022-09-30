@@ -1,0 +1,80 @@
+====> user mgmt
+commands:
+
+
+usermod:
+-------
+
+[root@ip-172-31-28-28 ~]# usermod -c ""^C
+[root@ip-172-31-28-28 ~]# cat /etc/passwd | grep julie
+julie:x:1025:1025:testing on useradd cmd:/home/julie:/bin/bash
+[root@ip-172-31-28-28 ~]# usermod -c "Testing with comment" julie
+[root@ip-172-31-28-28 ~]# cat /etc/passwd | grep julie
+julie:x:1025:1025:Testing with comment:/home/julie:/bin/bash
+[root@ip-172-31-28-28 ~]# 
+[root@ip-172-31-28-28 ~]# 
+[root@ip-172-31-28-28 ~]# usermod -u 1050 julie
+[root@ip-172-31-28-28 ~]# cat /etc/passwd | grep julie
+julie:x:1050:1025:Testing with comment:/home/julie:/bin/bash
+[root@ip-172-31-28-28 ~]# usermod -s /bin/csh julie
+[root@ip-172-31-28-28 ~]# cat /etc/passwd | grep julie
+julie:x:1050:1025:Testing with comment:/home/julie:/bin/csh
+
+userdel: to remove a user account partially/gracefully
+-------
+
+[root@ip-172-31-28-28 ~]# userdel julie
+[root@ip-172-31-28-28 ~]# cat /etc/passwd | grep julie
+[root@ip-172-31-28-28 ~]# ls -lrta /home/julie
+total 12
+-rw-r--r-- 1 1050 1025 231 Jul 15  2020 .bashrc
+-rw-r--r-- 1 1050 1025 193 Jul 15  2020 .bash_profile
+-rw-r--r-- 1 1050 1025  18 Jul 15  2020 .bash_logout
+drwxr-xr-x 8 root root  91 Sep 26 15:02 ..
+drwx------ 2 1050 1025  62 Sep 26 15:02 .
+[root@ip-172-31-28-28 ~]# userdel -r julie
+userdel: user 'julie' does not exist
+[root@ip-172-31-28-28 ~]# ls -lrta /home/julie
+total 12
+-rw-r--r-- 1 1050 1025 231 Jul 15  2020 .bashrc
+-rw-r--r-- 1 1050 1025 193 Jul 15  2020 .bash_profile
+-rw-r--r-- 1 1050 1025  18 Jul 15  2020 .bash_logout
+drwxr-xr-x 8 root root  91 Sep 26 15:02 ..
+drwx------ 2 1050 1025  62 Sep 26 15:02 .
+[root@ip-172-31-28-28 ~]# ls -lrta /home/j^C
+[root@ip-172-31-28-28 ~]# userdel -r testing123
+[root@ip-172-31-28-28 ~]# ls -lrta /home/testing123
+ls: cannot access /home/testing123: No such file or directory
+[root@ip-172-31-28-28 ~]# cat /etc/passwd|grep testig123
+
+========group mgmt
+
+there are 2 types of groups are there
+
+1. Primary group  --
+2. Secondary group
+
+[root@ip-172-31-28-28 ~]# usermod -g Testing sekhar
+[root@ip-172-31-28-28 ~]# cat /etc/passwd|grep sekhar
+sekhar:x:1001:1004::/home/sekhar:/bin/bash
+[root@ip-172-31-28-28 ~]# cat /etc/group|grep Testing
+Testing:x:1004:
+
+[root@ip-172-31-28-28 ~]# usermod -g Testing sekhar
+[root@ip-172-31-28-28 ~]# cat /etc/passwd|grep sekhar
+sekhar:x:1001:1004::/home/sekhar:/bin/bash
+[root@ip-172-31-28-28 ~]# cat /etc/group|grep Testing
+Testing:x:1004:
+
+[root@ip-172-31-28-28 ~]# groupadd -g owner
+groupadd: invalid group ID 'owner'
+[root@ip-172-31-28-28 ~]# cat /etc/group|grep owner
+[root@ip-172-31-28-28 ~]# groupadd -g 1120 owner
+[root@ip-172-31-28-28 ~]# cat /etc/group|grep owner
+owner:x:1120:
+[root@ip-172-31-28-28 ~]# usermod -aG owner sekhar
+[root@ip-172-31-28-28 ~]# cat /etc/group|grep owner
+owner:x:1120:sekhar
+
+
+
